@@ -20,8 +20,11 @@ use App\Models\User;
 use App\Models\Cart;
 
 
-
 Route::get('/', function () {
+	//lista 
+	return view('home');
+});
+Route::get('/plato', function () {
 	//lista 
 	$platos = Plato::all();
     return view('plato_index', ['platos'=>$platos]);
