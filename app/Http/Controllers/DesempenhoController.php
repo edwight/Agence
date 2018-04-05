@@ -73,14 +73,14 @@ class DesempenhoController extends Controller
         
 		$meses = $this->factura->groupBy('periodo')->keys()->all();
         $usuarios = $params->groupBy('nombre');
-		$custo_medio = $usuarios->reduce(function ($carry, $item) {
-            return $carry + $item[0]->custo_fixo;;
+		$custo_medio = $usuarios->reduce(function ($arr, $item) {
+            return $arr + $item[0]->custo_fixo;;
         }, 0);
         if (count($usuarios) <=0) {
                 return ['cero'];
             }
 
-            $custo_medio /= count($usuarios);
+            $custo_medio = $custo_medio / count($usuarios);
         $series = [
             [
                 'type' =>'spline',
