@@ -103,11 +103,11 @@ class DesempenhoController extends Controller
                 'data' => [],
             ];
 
-            $month_receita = $usuario->groupBy('periodo');
+            $mes_de_receita = $usuario->groupBy('periodo');
 			foreach ($meses as $key => $datos) {
 				//$receita_liquida += $datos->receita_liquida;
 				//$custo_fixo_medio[] += $datos->custo_fixo;
-                $datomonth = ( isset($month_receita[$datos]) ) ? $month_receita[$datos][0]->receita_liquida : 0;
+                $datomonth = ( isset($mes_de_receita[$datos]) ) ? $mes_de_receita[$datos][0]->receita_liquida : 0;
                 $serieDate['data'][] = floatval($datomonth);
 			}
             $series[0]['data'][] = $custo_medio;
