@@ -16,6 +16,7 @@ window.Vue = require('vue');
  */
 import example from './components/ExampleComponent.vue';
 import userlist from './components/User/Index.vue'; 
+import usercreate from './components/User/Create.vue';
 //import nav from './components/Layout/Nav.vue';
 //import content from './components/Layout/Content.vue';
 //Vue.component('example', example).default;
@@ -24,7 +25,8 @@ const app = new Vue({
     el: '#app',
     components: { 
     	example,
-    	userlist
+    	userlist,
+    	usercreate
     	//nav,
     	//content
     },

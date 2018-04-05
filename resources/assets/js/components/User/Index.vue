@@ -218,16 +218,23 @@
 
 <script>
 	export default{
+    created(){
+      this.addUsers();
+    },
 		data(){
       return{
-          userlist:[
-
-          ]
+          userlist:[]
       }
     },
     methods:{
       addUsers(){
-        const url = '';
+        const url = 'http://localhost:8000/api/v1/users';
+        this.axios.get(url).then((res)=>{
+          console.log(res.data);
+        })
+        .catch((err)=>{
+          console.log(err);
+        });
       }
     }
 	}
